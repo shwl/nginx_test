@@ -4,8 +4,7 @@ SET CurPath=%~dp0
 mkdir logs
 mkdir temp
 mkdir temp\client_body_temp
-@echo 运行：C:\MinGW\msys\1.0\msys.bat 配置命令：auto/configure --with-http_ssl_module --with-http_v2_module --with-http_sub_module --with-http_dav_module  --with-cc=cl --with-debug --prefix= --conf-path=conf/nginx.conf --pid-path=logs/nginx.pid --http-log-path=logs/access.log --error-log-path=logs/error.log --sbin-path=nginx.exe --http-client-body-temp-path=temp/client_body_temp --http-proxy-temp-path=temp/proxy_temp --http-fastcgi-temp-path=temp/fastcgi_temp --http-scgi-temp-path=temp/scgi_temp --http-uwsgi-temp-path=temp/uwsgi_temp --with-cc-opt=-DFD_SETSIZE=1024 --with-pcre=objs/lib/pcre-8.43 --with-zlib=objs/lib/zlib-1.2.11 --with-openssl=objs/lib/openssl-1.1.1c --with-openssl-opt=no-asm
-@echo XP系统支持，需要修改objs\Makefile  -link后面添加 /subsystem:console,5.01
+@echo 运行：C:\MinGW\msys\1.0\msys.bat 配置命令：auto/configure --with-http_ssl_module --with-http_v2_module --with-http_sub_module --with-http_dav_module  --with-cc=cl --with-debug --prefix= --conf-path=conf/nginx.conf --pid-path=logs/nginx.pid --http-log-path=logs/access.log --error-log-path=logs/error.log --sbin-path=nginx.exe --http-client-body-temp-path=temp/client_body_temp --http-proxy-temp-path=temp/proxy_temp --http-fastcgi-temp-path=temp/fastcgi_temp --http-scgi-temp-path=temp/scgi_temp --http-uwsgi-temp-path=temp/uwsgi_temp --with-cc-opt="-DFD_SETSIZE=1024 -D_WIN32_WINNT=0x0501" --with-pcre=objs/lib/pcre-8.43 --with-zlib=objs/lib/zlib-1.2.11 --with-openssl=objs/lib/openssl-1.1.1c --with-openssl-opt="no-asm -D_WIN32_WINNT=0x0501"
 
 goto start
 以下参数允许您禁用默认情况下启用的模块：
